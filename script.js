@@ -16,31 +16,32 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var number = '0123456789'
+var symbol = '!@#$%^&*_+`-=<>?';
 
-const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+//How do we set range of numbers?
+var num = ''
 
-const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-
-//some characters made JS unhappy, so I left them out
-const characters = ["!", "#", "$", "%", "^", "&", "*", "-", "+", "/", "<", "=", ">", "@", "?"]
-
+//charAt selects character at a certain position in string
 //Math.floor rounds number down to whole number
-const randomUpper = uppercase[Math.floor(Math.random()*uppercase.length)]
+//Math.random produces random number
 
-console.log(randomUpper)
+function generatePassword(num) {
+  var pswd = '';
+  var num = '12lkdsfglkjdfg';
+  for (var i = 0; i < num.length; i++) {
+      pswd += upper.charAt(Math.floor(Math.random() * upper.length));
+      console.log(pswd);
+    }
+  }
 
-const randomLower = lowercase[Math.floor(Math.random()*lowercase.length)]
+generatePassword()
 
-console.log(randomLower)
 
-const randomNumber = numbers[Math.floor(Math.random()*numbers.length)]
 
-console.log(randomNumber)
 
-const randomChar = characters[Math.floor(Math.random()*characters.length)]
-
-console.log(randomChar)
 
 
 

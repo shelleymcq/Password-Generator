@@ -1,3 +1,4 @@
+var LowerCase = ["A", "B"]
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -9,105 +10,59 @@ function writePassword() {
   passwordText.value = password;
 
 }
-//from Jim Wednesday
-
-function generatePassword() {
-
-
-  return 
-}
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
 
+// starting over.....
+
+function gettingPassword () {
+  var length = parseInt(
+    prompt("Enter a password length between 8 and 128 chaaracters.")
+    // check that user has entered a valid number within the range
+  )
+  if(Number.isNaN(length)){
+    alert("that is not a number");
+    return;
+  }
+  if (length < 8 ) {
+    alert("you must have a minimum length of 8");
+    return;
+  }
+  if (length > 128 ){
+    alert("you can have a maximum length of 128");
+    return;
+  }
+
+  //user selects which type of characters to include
+ var hasLowerCase = confirm("Would you like to include lower case letters?")
+ var hasUpperCase = confirm("Would you like to include upper case letters?")
+ var hasNumber = confirm("Would you like to include numbers?")
+ var hasSymbol = confirm("Would you like to include symbols?")
 
 
+//check to see the users options are false or empty - if empty alert fix it and return
+ if (
+   hasLowerCase === false &&
+   hasUpperCase === false &&
+   hasNumber === false &&
+   hasSymbol === false
+ ) {
+    alert("you must choose at least one type of character to include in");
+    return;
+ }
 
-// request desired password length
+ //store options in an object
+ var passwordOptionsSelected = {
+   length: length,
+   hasLowerCase: hasLowerCase,
+   hasUpperCase: hasUpperCase,
+   hasNumber: hasNumber,
+   hasSymbol: hasSymbol,
+ };
 
-let passwordLength = prompt("Enter a password length between 8 and 128");
-
-console.log(passwordLength)
-
-
-// prompt user to select character types and respond with their selection
-// I feel like I should be able to do this with one less variable, but couldn't get it to work
-
-let resultUpper = confirm("Would you like to include upper case letters?");
-let messageUpper = resultUpper
-  if (resultUpper) {
-     messageUpper = 'You clicked OK for upper case';
-  } else {
-     messageUpper = 'You clicked Cancel';
+    return passwordOptionsSelected;
 }
-alert(messageUpper);
-
-let resultLower = confirm("Would you like to include lower case letters?");
-let messageLower = resultLower
-  if (resultLower) {
-     messageLower = 'You clicked OK for lower case';
-  } else {
-     messageLower = 'You clicked Cancel';
-}
-alert(messageLower);
-
-let resultNumber = confirm("Would you like to include numbers?");
-let messageNumber = resultNumber
-  if (resultNumber) {
-     messageNumber = 'You clicked OK for numbers';
-  } else {
-     messageNumber = 'You clicked Cancel';
-}
-alert(messageNumber);
-
-let resultSymbol = confirm("Would you like to include symbols?");
-let messageSymbol = resultSymbol
-  if (resultSymbol) {
-     messageSymbol = 'You clicked OK for symbols';
-  } else {
-     messageSymbol = 'You clicked Cancel';
-}
-alert(messageSymbol);
-
-
-// create array of possible characters from user preferences
-
-
-let passwordArr = []
-
-if (resultUpper) {
-  passwordArr.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-} 
-
-if (resultLower) {
-  passwordArr.push('abcdefghijklmnopqrstuvwxyz');
-}
-
-if (resultNumber) {
-  passwordArr.push('0123456789')
-}
-
-if (resultSymbol) {
-  passwordArr.push('!@#$%^&*_+`-=<>?')
-}
-
-// join the different items in the array into a single string
-
-let passwordString = passwordArr.join("")
-
-console.log(passwordString)
-console.log(passwordString.length)
-
-
-// for loop to choose random characters and create password of given length
-
-let pword = "";
-
-for(var i = 0; i < passwordLength; i++) {
-  pword = pword + passwordString.charAt(Math.floor(Math.random() * passwordString.length));
-}
-
-alert("Your password is " + pword)
+console.log(gettingPassword())

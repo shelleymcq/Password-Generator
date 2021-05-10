@@ -2,7 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
+function writePassword() { 
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -50,7 +51,7 @@ function generatePassword () {
      hasNumber === false &&
      hasSymbol === false
     ) {
-      alert("you must choose at least one type of character to include in");
+      alert("you must choose at least one type of character to include in password");
       return;
     }
   
@@ -78,18 +79,17 @@ function generatePassword () {
         passwordArr.push('!@#$%^&*_+`-=<>?')
       }
     
-      // turn array into string
+    // turn array into string
     let passwordString = passwordArr.join("")
-  
+    console.log(passwordString)
 
-  // I'll keep trying but needed to turn something that was almost working in.
-  // started returning undefined at the beginning of the password and I can't figure out why. It worked in earlier versions and the code in the passwordArr above and the for loop below is the same???????
-  
-    let pword;
+    //create random password
+
+    let pword = ""
       for(var i = 0; i < length; i++) {
         pword = pword + passwordString.charAt(Math.floor(Math.random() * passwordString.length));
       }
-  
       return pword;
+      
   }
   

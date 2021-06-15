@@ -6,7 +6,7 @@ This app will provide a user with a randomly generated password of a desired len
 Deployed application:
 https://shelleymcq.github.io/Password-Generator/
 
-![screenshot of app](passwrord-generator.gif)
+![demo of app](password-generator.gif)
 
 Built using HTML, CSS, and JavaScript
 
